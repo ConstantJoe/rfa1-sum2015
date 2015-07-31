@@ -1,0 +1,729 @@
+Archive member included because of file (symbol)
+
+C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+                              NoiseMaker.o (button_init)
+C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+                              NoiseMaker.o (leds_init)
+C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+                              NoiseMaker.o (radio_init)
+C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+                              NoiseMaker.o (serial_init)
+C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+                              NoiseMaker.o (timer_init)
+C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+                              C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o) (hw_timer_cpuf)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+                              C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o) (__mulsi3)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+                              C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o) (__udivmodsi4)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                              c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o (exit)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+                              C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o) (__do_copy_data)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+                              NoiseMaker.o (__do_clear_bss)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+                              c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o) (__muluhisi3)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+                              c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o) (__umulhisi3)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+                              C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o) (__iob)
+
+Allocating common symbols
+Common symbol       size              file
+
+gate                0x2               NoiseMaker.o
+tx_buffer           0x80              NoiseMaker.o
+request             0x6               NoiseMaker.o
+newPkt              0x8               NoiseMaker.o
+str                 0x8               NoiseMaker.o
+__iob               0x6               c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+ .text          0x00000000        0x0 NoiseMaker.o
+ .data          0x00000000        0x0 NoiseMaker.o
+ .bss           0x00000000        0x0 NoiseMaker.o
+ .data          0x00000000        0x0 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .bss           0x00000000        0x0 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .data          0x00000000        0x0 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .bss           0x00000000        0x0 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .data          0x00000000        0x0 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .data          0x00000000        0x0 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800100         0x0000ff00         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800200
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+LOAD NoiseMaker.o
+START GROUP
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libm.a
+LOAD C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a
+END GROUP
+START GROUP
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libm.a
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a
+END GROUP
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xc44
+ *(.vectors)
+ .vectors       0x00000000      0x120 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x00000120                . = ALIGN (0x2)
+                0x00000120                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000120        0x0 linker stubs
+ *(.trampolines*)
+                0x00000120                __trampolines_end = .
+ *(.progmem*)
+                0x00000120                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000120                __ctors_start = .
+ *(.ctors)
+                0x00000120                __ctors_end = .
+                0x00000120                __dtors_start = .
+ *(.dtors)
+                0x00000120                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000120        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+                0x00000120                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000120        0xc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000012c       0x1a c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+                0x0000012c                __do_copy_data
+ .init4         0x00000146       0x10 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+                0x00000146                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000156        0x4 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+ *(.init9)
+ *(.text)
+ .text          0x0000015a        0x2 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
+                0x0000015a                __vector_38
+                0x0000015a                __vector_22
+                0x0000015a                __vector_63
+                0x0000015a                __vector_28
+                0x0000015a                __vector_67
+                0x0000015a                __vector_1
+                0x0000015a                __vector_32
+                0x0000015a                __vector_71
+                0x0000015a                __vector_34
+                0x0000015a                __vector_62
+                0x0000015a                __vector_24
+                0x0000015a                __vector_12
+                0x0000015a                __vector_55
+                0x0000015a                __vector_69
+                0x0000015a                __vector_46
+                0x0000015a                __bad_interrupt
+                0x0000015a                __vector_6
+                0x0000015a                __vector_31
+                0x0000015a                __vector_35
+                0x0000015a                __vector_39
+                0x0000015a                __vector_3
+                0x0000015a                __vector_23
+                0x0000015a                __vector_68
+                0x0000015a                __vector_30
+                0x0000015a                __vector_45
+                0x0000015a                __vector_25
+                0x0000015a                __vector_61
+                0x0000015a                __vector_11
+                0x0000015a                __vector_54
+                0x0000015a                __vector_13
+                0x0000015a                __vector_17
+                0x0000015a                __vector_19
+                0x0000015a                __vector_56
+                0x0000015a                __vector_7
+                0x0000015a                __vector_49
+                0x0000015a                __vector_41
+                0x0000015a                __vector_64
+                0x0000015a                __vector_43
+                0x0000015a                __vector_27
+                0x0000015a                __vector_5
+                0x0000015a                __vector_33
+                0x0000015a                __vector_47
+                0x0000015a                __vector_52
+                0x0000015a                __vector_37
+                0x0000015a                __vector_4
+                0x0000015a                __vector_44
+                0x0000015a                __vector_51
+                0x0000015a                __vector_9
+                0x0000015a                __vector_2
+                0x0000015a                __vector_21
+                0x0000015a                __vector_15
+                0x0000015a                __vector_66
+                0x0000015a                __vector_36
+                0x0000015a                __vector_58
+                0x0000015a                __vector_70
+                0x0000015a                __vector_29
+                0x0000015a                __vector_60
+                0x0000015a                __vector_40
+                0x0000015a                __vector_8
+                0x0000015a                __vector_26
+                0x0000015a                __vector_48
+                0x0000015a                __vector_14
+                0x0000015a                __vector_57
+                0x0000015a                __vector_53
+                0x0000015a                __vector_10
+                0x0000015a                __vector_50
+                0x0000015a                __vector_16
+                0x0000015a                __vector_59
+                0x0000015a                __vector_18
+                0x0000015a                __vector_20
+                0x0000015a                __vector_42
+                0x0000015a                __vector_65
+ .text          0x0000015c       0x16 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+                0x0000015c                button_init
+                0x00000162                button_pressed
+                0x0000016a                button_released
+ .text          0x00000172       0x3e C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+                0x00000172                leds_init
+                0x00000180                leds_on
+                0x00000198                leds_off
+ .text          0x000001b0      0x2fa C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+                0x000001b0                radio_init
+                0x0000022c                radio_start
+                0x00000250                radio_tx_done
+                0x0000025a                radio_send
+                0x00000324                radio_rxed
+                0x00000330                radio_recv
+                0x00000460                radio_set_power
+                0x00000470                radio_rssi
+                0x00000484                radio_max_rssi
+                0x0000048e                radio_latest_energy
+                0x00000494                radio_latest_lqi
+                0x0000049a                radio_rx_all
+                0x000004a0                radio_getid
+ .text          0x000004aa      0x132 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+                0x000004aa                serial_init
+                0x00000574                serial_is_init
+                0x0000057a                serial_put
+                0x00000598                serial_puts
+                0x000005b4                serial_ready
+                0x000005c0                serial_get
+ .text          0x000005dc      0x29e C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+                0x00000690                timer_init
+                0x000006a4                timer_start
+                0x000006c0                timer_stop
+                0x000006c8                main
+ .text          0x0000087a      0x1b2 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+                0x0000087a                hw_timer_cpuf
+                0x00000884                hw_timer_init
+                0x000008a0                hw_timer_start
+                0x000008b6                hw_timer_overflow
+                0x000008c6                hw_timer_now
+                0x000008d0                hw_timer_now_us
+                0x00000948                hw_timer_wait_micro
+                0x00000a06                hw_timer_wait_milli
+                0x00000a2c                . = ALIGN (0x2)
+ *(.text.*)
+ .text.application_start
+                0x00000a2c       0x34 NoiseMaker.o
+                0x00000a2c                application_start
+ .text.application_timer_tick
+                0x00000a60       0xb0 NoiseMaker.o
+                0x00000a60                application_timer_tick
+ .text.application_radio_rx_msg
+                0x00000b10       0x82 NoiseMaker.o
+                0x00000b10                application_radio_rx_msg
+ .text.application_radio_tx_done
+                0x00000b92       0x16 NoiseMaker.o
+                0x00000b92                application_radio_tx_done
+ .text.application_button_pressed
+                0x00000ba8        0x2 NoiseMaker.o
+                0x00000ba8                application_button_pressed
+ .text.application_button_released
+                0x00000baa        0x2 NoiseMaker.o
+                0x00000baa                application_button_released
+ .text.libgcc.mul
+                0x00000bac       0x1e c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+                0x00000bac                __mulsi3
+ .text.libgcc.div
+                0x00000bca       0x44 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+                0x00000bca                __udivmodsi4
+ .text.libgcc.mul
+                0x00000c0e       0x14 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+                0x00000c0e                __muluhisi3
+ .text.libgcc.mul
+                0x00000c22       0x1e c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+                0x00000c22                __umulhisi3
+                0x00000c40                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000c40        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                0x00000c40                _exit
+                0x00000c40                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000c40        0x4 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000c44                _etext = .
+
+.data           0x00800200       0x10 load address 0x00000c44
+                0x00800200                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800200        0x1 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .data          0x00800201        0xe C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800210                . = ALIGN (0x2)
+ *fill*         0x0080020f        0x1 
+                0x00800210                _edata = .
+                0x00800210                PROVIDE (__data_end, .)
+
+.bss            0x00800210      0x14e
+                0x00800210                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800210        0x7 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .bss           0x00800217        0x1 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .bss           0x00800218       0x99 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+                0x00800218                os_tick
+                0x0080021c                id
+ .bss           0x008002b1        0x4 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+                0x008002b1                basetime
+ *(.bss*)
+ .bss.tx_buffer_inuse
+                0x008002b5        0x1 NoiseMaker.o
+                0x008002b5                tx_buffer_inuse
+ .bss.timer1    0x008002b6        0xa NoiseMaker.o
+ *(COMMON)
+ COMMON         0x008002c0       0x98 NoiseMaker.o
+                0x008002c0                gate
+                0x008002c2                tx_buffer
+                0x00800342                request
+                0x00800348                newPkt
+                0x00800350                str
+ COMMON         0x00800358        0x6 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+                0x00800358                __iob
+                0x0080035e                PROVIDE (__bss_end, .)
+                0x00000c44                __data_load_start = LOADADDR (.data)
+                0x00000c54                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080035e        0x0
+                0x0080035e                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080035e                PROVIDE (__noinit_end, .)
+                0x0080035e                _end = .
+                0x0080035e                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x30
+ *(.comment)
+ .comment       0x00000000       0x30 NoiseMaker.o
+                                 0x31 (size before relaxing)
+ .comment       0x00000000       0x31 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x108
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x48 NoiseMaker.o
+ .debug_aranges
+                0x00000048       0x20 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .debug_aranges
+                0x00000068       0x20 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .debug_aranges
+                0x00000088       0x20 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .debug_aranges
+                0x000000a8       0x20 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .debug_aranges
+                0x000000c8       0x20 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .debug_aranges
+                0x000000e8       0x20 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x1357
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x5ee NoiseMaker.o
+ .debug_info    0x000005ee       0xb4 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .debug_info    0x000006a2       0xc8 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .debug_info    0x0000076a      0x397 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .debug_info    0x00000b01      0x2b5 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .debug_info    0x00000db6      0x3db C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .debug_info    0x00001191      0x1c6 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+
+.debug_abbrev   0x00000000      0x88e
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1f8 NoiseMaker.o
+ .debug_abbrev  0x000001f8       0x5f C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .debug_abbrev  0x00000257       0x87 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .debug_abbrev  0x000002de      0x144 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .debug_abbrev  0x00000422      0x168 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .debug_abbrev  0x0000058a      0x20f C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .debug_abbrev  0x00000799       0xf5 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+
+.debug_line     0x00000000      0x8d7
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x24e NoiseMaker.o
+ .debug_line    0x0000024e       0xdc C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .debug_line    0x0000032a       0xe6 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .debug_line    0x00000410      0x19a C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .debug_line    0x000005aa      0x119 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .debug_line    0x000006c3       0xfe C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .debug_line    0x000007c1      0x116 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+
+.debug_frame    0x00000000      0x4b8
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xa0 NoiseMaker.o
+ .debug_frame   0x000000a0       0x44 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+ .debug_frame   0x000000e4       0x44 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+ .debug_frame   0x00000128      0x138 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .debug_frame   0x00000260       0xec C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .debug_frame   0x0000034c       0x84 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .debug_frame   0x000003d0       0xe8 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+
+.debug_str      0x00000000      0x657
+ *(.debug_str)
+ .debug_str     0x00000000      0x2eb NoiseMaker.o
+                                0x35d (size before relaxing)
+ .debug_str     0x000002eb       0x63 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(button.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x0000034e       0x15 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(leds.o)
+                                 0xe3 (size before relaxing)
+ .debug_str     0x00000363      0x104 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+                                0x22e (size before relaxing)
+ .debug_str     0x00000467       0x81 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+                                0x17d (size before relaxing)
+ .debug_str     0x000004e8       0xc2 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+                                0x206 (size before relaxing)
+ .debug_str     0x000005aa       0xad C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+                                0x190 (size before relaxing)
+
+.debug_loc      0x00000000      0xcaf
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x212 NoiseMaker.o
+ .debug_loc     0x00000212      0x44b C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(radio.o)
+ .debug_loc     0x0000065d      0x1f9 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(serial.o)
+ .debug_loc     0x00000856      0x245 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+ .debug_loc     0x00000a9b      0x214 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(hw_timer.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000       0x80
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x68 NoiseMaker.o
+ .debug_ranges  0x00000068       0x18 C:\Users\se414010\Documents\GitHub\rfa1-sum2015\ManInTheMiddle\NoiseMaker\NoiseMaker\libOS.a(simple_os.o)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(NoiseMaker.elf elf32-avr)
+LOAD linker stubs

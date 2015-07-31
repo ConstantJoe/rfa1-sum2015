@@ -59,7 +59,6 @@ Common symbol       size              file
 response            0x11              Attacker.o
 gate                0x2               Attacker.o
 opener              0x2               Attacker.o
-ackackack           0x11              Attacker.o
 openKeyword         0x11              Attacker.o
 challenge           0x11              Attacker.o
 tx_buffer           0x80              Attacker.o
@@ -341,7 +340,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1552
+.text           0x00000000     0x1584
  *(.vectors)
  .vectors       0x00000000      0x120 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128rfa1.o
                 0x00000000                __vector_default
@@ -522,70 +521,70 @@ END GROUP
                 0x00000a68       0x44 Attacker.o
                 0x00000a68                application_timer_tick
  .text.application_radio_rx_msg
-                0x00000aac      0x2ee Attacker.o
+                0x00000aac      0x318 Attacker.o
                 0x00000aac                application_radio_rx_msg
  .text.application_radio_tx_done
-                0x00000d9a       0x36 Attacker.o
-                0x00000d9a                application_radio_tx_done
+                0x00000dc4       0x36 Attacker.o
+                0x00000dc4                application_radio_tx_done
  .text.application_button_pressed
-                0x00000dd0       0x56 Attacker.o
-                0x00000dd0                application_button_pressed
+                0x00000dfa       0x5e Attacker.o
+                0x00000dfa                application_button_pressed
  .text.application_button_released
-                0x00000e26        0x2 Attacker.o
-                0x00000e26                application_button_released
+                0x00000e58        0x2 Attacker.o
+                0x00000e58                application_button_released
  .text.libgcc.mul
-                0x00000e28       0x1e c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
-                0x00000e28                __mulsi3
+                0x00000e5a       0x1e c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_mulsi3.o)
+                0x00000e5a                __mulsi3
  .text.libgcc.div
-                0x00000e46       0x44 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
-                0x00000e46                __udivmodsi4
+                0x00000e78       0x44 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_udivmodsi4.o)
+                0x00000e78                __udivmodsi4
  .text.libgcc.mul
-                0x00000e8a       0x14 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
-                0x00000e8a                __muluhisi3
+                0x00000ebc       0x14 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_muluhisi3.o)
+                0x00000ebc                __muluhisi3
  .text.libgcc.mul
-                0x00000e9e       0x1e c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
-                0x00000e9e                __umulhisi3
+                0x00000ed0       0x1e c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_umulhisi3.o)
+                0x00000ed0                __umulhisi3
  .text.avr-libc
-                0x00000ebc       0x4c c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(atol.o)
-                0x00000ebc                atol
+                0x00000eee       0x4c c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(atol.o)
+                0x00000eee                atol
  .text.avr-libc
-                0x00000f08       0x12 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcmp.o)
-                0x00000f08                strcmp
+                0x00000f3a       0x12 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strcmp.o)
+                0x00000f3a                strcmp
  .text.avr-libc
-                0x00000f1a       0x2a c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(mulsi10.o)
-                0x00000f1a                __mulsi_const_10
+                0x00000f4c       0x2a c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(mulsi10.o)
+                0x00000f4c                __mulsi_const_10
  .text.avr-libc
-                0x00000f44       0x22 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(printf.o)
-                0x00000f44                printf
+                0x00000f76       0x22 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(printf.o)
+                0x00000f76                printf
  .text.avr-libc
-                0x00000f66        0xa c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(putchar.o)
-                0x00000f66                putchar
+                0x00000f98        0xa c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(putchar.o)
+                0x00000f98                putchar
  .text.avr-libc
-                0x00000f70       0x5a c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(puts.o)
-                0x00000f70                puts
+                0x00000fa2       0x5a c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(puts.o)
+                0x00000fa2                puts
  .text.avr-libc
-                0x00000fca       0x5c c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
-                0x00000fca                sprintf
+                0x00000ffc       0x5c c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(sprintf.o)
+                0x00000ffc                sprintf
  .text.avr-libc
-                0x00001026      0x3dc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
-                0x00001026                vfprintf
+                0x00001058      0x3dc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+                0x00001058                vfprintf
  .text.avr-libc
-                0x00001402       0x16 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
-                0x00001402                strnlen_P
+                0x00001434       0x16 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+                0x00001434                strnlen_P
  .text.avr-libc
-                0x00001418       0x16 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
-                0x00001418                strnlen
+                0x0000144a       0x16 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(strnlen.o)
+                0x0000144a                strnlen
  .text.avr-libc
-                0x0000142e       0x64 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
-                0x0000142e                fputc
+                0x00001460       0x64 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(fputc.o)
+                0x00001460                fputc
  .text.avr-libc
-                0x00001492       0xbc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
-                0x00001492                __ultoa_invert
-                0x0000154e                . = ALIGN (0x2)
+                0x000014c4       0xbc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+                0x000014c4                __ultoa_invert
+                0x00001580                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000154e        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
-                0x0000154e                _exit
-                0x0000154e                exit
+ .fini9         0x00001580        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                0x00001580                _exit
+                0x00001580                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -604,11 +603,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000154e        0x4 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x00001580        0x4 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001552                _etext = .
+                0x00001584                _etext = .
 
-.data           0x00800200       0x7a load address 0x00001552
+.data           0x00800200       0x9c load address 0x00001584
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200        0x1 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
@@ -620,69 +619,68 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800210       0x69 Attacker.o
+                0x00800210       0x8b Attacker.o
  *(.gnu.linkonce.d*)
-                0x0080027a                . = ALIGN (0x2)
- *fill*         0x00800279        0x1 
-                0x0080027a                _edata = .
-                0x0080027a                PROVIDE (__data_end, .)
+                0x0080029c                . = ALIGN (0x2)
+ *fill*         0x0080029b        0x1 
+                0x0080029c                _edata = .
+                0x0080029c                PROVIDE (__data_end, .)
 
-.bss            0x0080027a      0x19c
-                0x0080027a                PROVIDE (__bss_start, .)
+.bss            0x0080029c      0x18b
+                0x0080029c                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080027a        0x7 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
- .bss           0x00800281        0x1 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
- .bss           0x00800282       0x99 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
-                0x00800282                os_tick
-                0x00800286                id
- .bss           0x0080031b        0x4 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
-                0x0080031b                basetime
+ .bss           0x0080029c        0x7 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
+ .bss           0x008002a3        0x1 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
+ .bss           0x008002a4       0x99 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
+                0x008002a4                os_tick
+                0x008002a8                id
+ .bss           0x0080033d        0x4 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
+                0x0080033d                basetime
  *(.bss*)
  .bss.difference
-                0x0080031f        0x4 Attacker.o
-                0x0080031f                difference
- .bss.expectingAck
-                0x00800323        0x1 Attacker.o
-                0x00800323                expectingAck
- .bss.canOpen   0x00800324        0x1 Attacker.o
-                0x00800324                canOpen
+                0x00800341        0x4 Attacker.o
+                0x00800341                difference
+ .bss.awaitingResponse
+                0x00800345        0x1 Attacker.o
+                0x00800345                awaitingResponse
+ .bss.canOpen   0x00800346        0x1 Attacker.o
+                0x00800346                canOpen
  .bss.fourthPacket
-                0x00800325        0x1 Attacker.o
-                0x00800325                fourthPacket
+                0x00800347        0x1 Attacker.o
+                0x00800347                fourthPacket
  .bss.thirdPacket
-                0x00800326        0x1 Attacker.o
-                0x00800326                thirdPacket
+                0x00800348        0x1 Attacker.o
+                0x00800348                thirdPacket
  .bss.secondPacket
-                0x00800327        0x1 Attacker.o
-                0x00800327                secondPacket
- .bss.canSend   0x00800328        0x1 Attacker.o
-                0x00800328                canSend
+                0x00800349        0x1 Attacker.o
+                0x00800349                secondPacket
+ .bss.canSend   0x0080034a        0x1 Attacker.o
+                0x0080034a                canSend
  .bss.tx_buffer_inuse
-                0x00800329        0x1 Attacker.o
-                0x00800329                tx_buffer_inuse
- .bss.timer1    0x0080032a        0xa Attacker.o
+                0x0080034b        0x1 Attacker.o
+                0x0080034b                tx_buffer_inuse
+ .bss.timer1    0x0080034c        0xa Attacker.o
  *(COMMON)
- COMMON         0x00800334       0xdc Attacker.o
-                0x00800334                response
-                0x00800345                gate
-                0x00800347                opener
-                0x00800349                ackackack
-                0x0080035a                openKeyword
-                0x0080036b                challenge
-                0x0080037c                tx_buffer
-                0x008003fc                newPkt
- COMMON         0x00800410        0x6 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
-                0x00800410                __iob
-                0x00800416                PROVIDE (__bss_end, .)
-                0x00001552                __data_load_start = LOADADDR (.data)
-                0x000015cc                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800356       0xcb Attacker.o
+                0x00800356                response
+                0x00800367                gate
+                0x00800369                opener
+                0x0080036b                openKeyword
+                0x0080037c                challenge
+                0x0080038d                tx_buffer
+                0x0080040d                newPkt
+ COMMON         0x00800421        0x6 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(iob.o)
+                0x00800421                __iob
+                0x00800427                PROVIDE (__bss_end, .)
+                0x00001584                __data_load_start = LOADADDR (.data)
+                0x00001620                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800416        0x0
-                0x00800416                PROVIDE (__noinit_start, .)
+.noinit         0x00800427        0x0
+                0x00800427                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800416                PROVIDE (__noinit_end, .)
-                0x00800416                _end = .
-                0x00800416                PROVIDE (__heap_start, .)
+                0x00800427                PROVIDE (__noinit_end, .)
+                0x00800427                _end = .
+                0x00800427                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -769,15 +767,15 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x16ce
+.debug_info     0x00000000     0x1764
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x965 Attacker.o
- .debug_info    0x00000965       0xb4 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
- .debug_info    0x00000a19       0xc8 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
- .debug_info    0x00000ae1      0x397 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
- .debug_info    0x00000e78      0x2b5 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
- .debug_info    0x0000112d      0x3db C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
- .debug_info    0x00001508      0x1c6 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
+ .debug_info    0x00000000      0x9fb Attacker.o
+ .debug_info    0x000009fb       0xb4 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
+ .debug_info    0x00000aaf       0xc8 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
+ .debug_info    0x00000b77      0x397 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
+ .debug_info    0x00000f0e      0x2b5 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
+ .debug_info    0x000011c3      0x3db C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
+ .debug_info    0x0000159e      0x1c6 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
 
 .debug_abbrev   0x00000000      0x8c9
  *(.debug_abbrev)
@@ -789,50 +787,50 @@ END GROUP
  .debug_abbrev  0x000005c5      0x20f C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
  .debug_abbrev  0x000007d4       0xf5 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
 
-.debug_line     0x00000000      0xa53
+.debug_line     0x00000000      0xa93
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x3ca Attacker.o
- .debug_line    0x000003ca       0xdc C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
- .debug_line    0x000004a6       0xe6 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
- .debug_line    0x0000058c      0x19a C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
- .debug_line    0x00000726      0x119 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
- .debug_line    0x0000083f       0xfe C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
- .debug_line    0x0000093d      0x116 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
+ .debug_line    0x00000000      0x40a Attacker.o
+ .debug_line    0x0000040a       0xdc C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
+ .debug_line    0x000004e6       0xe6 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
+ .debug_line    0x000005cc      0x19a C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
+ .debug_line    0x00000766      0x119 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
+ .debug_line    0x0000087f       0xfe C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
+ .debug_line    0x0000097d      0x116 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
 
-.debug_frame    0x00000000      0x4e8
+.debug_frame    0x00000000      0x4ec
  *(.debug_frame)
- .debug_frame   0x00000000       0xd0 Attacker.o
- .debug_frame   0x000000d0       0x44 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
- .debug_frame   0x00000114       0x44 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
- .debug_frame   0x00000158      0x138 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
- .debug_frame   0x00000290       0xec C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
- .debug_frame   0x0000037c       0x84 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
- .debug_frame   0x00000400       0xe8 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
+ .debug_frame   0x00000000       0xd4 Attacker.o
+ .debug_frame   0x000000d4       0x44 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
+ .debug_frame   0x00000118       0x44 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
+ .debug_frame   0x0000015c      0x138 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
+ .debug_frame   0x00000294       0xec C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
+ .debug_frame   0x00000380       0x84 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
+ .debug_frame   0x00000404       0xe8 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
 
-.debug_str      0x00000000      0x70f
+.debug_str      0x00000000      0x709
  *(.debug_str)
- .debug_str     0x00000000      0x388 Attacker.o
-                                0x415 (size before relaxing)
- .debug_str     0x00000388       0x63 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
+ .debug_str     0x00000000      0x382 Attacker.o
+                                0x40f (size before relaxing)
+ .debug_str     0x00000382       0x63 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(button.o)
                                  0xfb (size before relaxing)
- .debug_str     0x000003eb        0xc C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
+ .debug_str     0x000003e5        0xc C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(leds.o)
                                  0xe3 (size before relaxing)
- .debug_str     0x000003f7      0x104 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
+ .debug_str     0x000003f1      0x104 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
                                 0x22e (size before relaxing)
- .debug_str     0x000004fb       0xa5 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
+ .debug_str     0x000004f5       0xa5 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
                                 0x17d (size before relaxing)
- .debug_str     0x000005a0       0xc2 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
+ .debug_str     0x0000059a       0xc2 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
                                 0x206 (size before relaxing)
- .debug_str     0x00000662       0xad C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
+ .debug_str     0x0000065c       0xad C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
                                 0x190 (size before relaxing)
 
-.debug_loc      0x00000000      0xd9d
+.debug_loc      0x00000000      0xdaa
  *(.debug_loc)
- .debug_loc     0x00000000      0x300 Attacker.o
- .debug_loc     0x00000300      0x44b C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
- .debug_loc     0x0000074b      0x1f9 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
- .debug_loc     0x00000944      0x245 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
- .debug_loc     0x00000b89      0x214 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
+ .debug_loc     0x00000000      0x30d Attacker.o
+ .debug_loc     0x0000030d      0x44b C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(radio.o)
+ .debug_loc     0x00000758      0x1f9 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(serial.o)
+ .debug_loc     0x00000951      0x245 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(simple_os.o)
+ .debug_loc     0x00000b96      0x214 C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker\libOS.a(hw_timer.o)
 
 .debug_macinfo
  *(.debug_macinfo)

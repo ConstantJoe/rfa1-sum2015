@@ -54,6 +54,7 @@ bool secondPacket = false;
 bool thirdPacket = false;
 bool fourthPacket = false;
 bool canOpen = false;
+bool awaitingResponse = false;
 long difference = 0;
 char openKeyword[17];
 char challenge[17];
@@ -70,7 +71,6 @@ void application_start()
 	radio_set_power(1);
 	radio_start();
 	serial_init(9600);
-	printf("test\r\n");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
 	timer_start(&timer1);
@@ -81,7 +81,6 @@ void application_start()
 void application_timer_tick(timer *t)
 {
 	if(canSend){
-		printf("sending a message\r\n");
 		if(tx_buffer_inuse == false)
 		{
 			tx_buffer_inuse = true;
@@ -101,38 +100,28 @@ void application_timer_tick(timer *t)
 //
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
-	printf("dst: %d\r\n", dst);
-	printf("src: %d\r\n", src);
-	printf("received a message\r\n");
 	char string[17];
 	for(int i = 4; i<len; i++)
 	{
-		printf("%c", msgdata[i]);
 		string[i-4] = msgdata[i];
 	}
 	string[16] = '\0';
 
 	if(!canOpen){
 		if(firstPacket){
-			printf("1\r\n");
 			gate = dst;
 			opener = src;
-			
-			printf("gate: %d\r\n", gate);
-			printf("opener: %d\r\n", opener);
 			
 			sprintf(openKeyword, string);
 			firstPacket = false;
 			secondPacket = true;
 		}
 		else if(src == gate && secondPacket){
-			printf("2\r\n");
 			sprintf(challenge, string);
 			secondPacket = false;
 			thirdPacket = true;
 		}
 		else if(src == opener && thirdPacket){
-			printf("3\r\n");
 			sprintf(response,string);
 			thirdPacket = false;
 			fourthPacket = true;
@@ -141,7 +130,6 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 		else if(fourthPacket && strcmp(string, "ACKACKacACKACKac") == 0){
 			//the opening was successful - there should be some recognisable difference between the challenge and response.
 			//going to simplify and assume its an addition. Would be better to learn what the difference is.
-			printf("4\r\n");
 			canOpen = true;
 			difference = atol(response) - atol(challenge);
 			
@@ -176,22 +164,26 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 		}
 		else{
 			if(src == gate){
-				long temp1 = atol(string);
-				temp1 += difference;
+				if(awaitingResponse){
+					long temp1 = atol(string);
+					temp1 += difference;
 
-				newPkt.dst = src;
-				if(opener != 0){
-					newPkt.src = opener;
+					newPkt.dst = src;
+					if(opener != 0){
+						newPkt.src = opener;
+					}
+					else{
+						newPkt.src = NODE_ID;
+					}
+					sprintf(newPkt.dt, "%lu", temp1);
+					//canSend = true;
+					
+					leds_off(LED_RED);
+					leds_on(LED_ORANGE);
+					leds_off(LED_GREEN);
+					awaitingResponse = false;
 				}
-				else{
-					newPkt.src = NODE_ID;
-				}
-				sprintf(newPkt.dt, "%lu", temp1);
-				canSend = true;
 				
-				leds_off(LED_RED);
-				leds_on(LED_ORANGE);
-				leds_off(LED_GREEN);
 			}
 		}
 	}
@@ -228,6 +220,8 @@ void application_button_pressed()
 		leds_off(LED_RED);
 		leds_on(LED_ORANGE);
 		leds_on(LED_GREEN);
+		
+		awaitingResponse = true;
 	}
 }
 

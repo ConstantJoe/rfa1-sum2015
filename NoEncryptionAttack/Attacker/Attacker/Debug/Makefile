@@ -58,9 +58,9 @@ Attacker.d
 C_DEPS_AS_ARGS +=  \
 Attacker.d
 
-OUTPUT_FILE_PATH +=Attacker.elf
+OUTPUT_FILE_PATH +=Attacker_6_2.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=Attacker.elf
+OUTPUT_FILE_PATH_AS_ARGS +=Attacker_6_2.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -108,13 +108,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 4.8.1
-	$(QUOTE)C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Attacker.map" -Wl,--start-group -Wl,-lm -Wl,-lOS  -Wl,--end-group -Wl,-L"C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker"  -Wl,--gc-sections -mrelax -mmcu=atmega128rfa1  
+	$(QUOTE)C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Attacker_6_2.map" -Wl,--start-group -Wl,-lm -Wl,-lOS  -Wl,--end-group -Wl,-L"C:\Users\se414010\Documents\Atmel Studio\6.2\NoEncryptionAttack\Attacker\Attacker"  -Wl,--gc-sections -mrelax -mmcu=atmega128rfa1  
 	@echo Finished building target: $@
-	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Attacker.elf" "Attacker.hex"
-	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Attacker.elf" "Attacker.eep" || exit 0
-	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "Attacker.elf" > "Attacker.lss"
-	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "Attacker.elf" "Attacker.srec"
-	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-size.exe" "Attacker.elf"
+	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Attacker_6_2.elf" "Attacker_6_2.hex"
+	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Attacker_6_2.elf" "Attacker_6_2.eep" || exit 0
+	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "Attacker_6_2.elf" > "Attacker_6_2.lss"
+	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "Attacker_6_2.elf" "Attacker_6_2.srec"
+	"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-size.exe" "Attacker_6_2.elf"
 	
 	
 
@@ -126,5 +126,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Attacker.elf" "Attacker.a" "Attacker.hex" "Attacker.lss" "Attacker.eep" "Attacker.map" "Attacker.srec" "Attacker.usersignatures"
+	rm -rf "Attacker_6_2.elf" "Attacker_6_2.a" "Attacker_6_2.hex" "Attacker_6_2.lss" "Attacker_6_2.eep" "Attacker_6_2.map" "Attacker_6_2.srec" "Attacker_6_2.usersignatures"
 	

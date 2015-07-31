@@ -54,12 +54,11 @@ bool secondPacket = false;
 bool thirdPacket = false;
 bool fourthPacket = false;
 bool canOpen = false;
-bool expectingAck = false;
+bool awaitingResponse = false;
 long difference = 0;
 char openKeyword[17];
 char challenge[17];
 char response[17];
-char ackackack[17];
 //
 // App init function
 //
@@ -101,10 +100,6 @@ void application_timer_tick(timer *t)
 // This function is called whenever a radio message is received
 // You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
 //
-
-//print out the encrypted message, show that you can't increment it
-//(you know that the opening protocol is increment - if your security relies on the protocol not being known then it will eventually be broken)
-//try increment it anyway, show that the response isn't the equivalent of ACKACKACK.
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
 	printf("dst: %d\r\n", dst);
@@ -144,55 +139,64 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			fourthPacket = true;
 		}
 		//going to assume that the attacker will know if the attack is successful or not (ack or nack). In reality user could input into device that the opening was successful or not.
-		else if(fourthPacket){
+		else if(fourthPacket && strcmp(string, "ACKACKacACKACKac") == 0){
 			//the opening was successful - there should be some recognisable difference between the challenge and response.
 			//going to simplify and assume its an addition. Would be better to learn what the difference is.
 			printf("4\r\n");
 			canOpen = true;
 			difference = atol(response) - atol(challenge);
-			sprintf(ackackack, string);
+			
 			leds_off(LED_RED);
 			leds_on(LED_ORANGE);
 			leds_off(LED_GREEN);
-		}	
+		}
+		else if(fourthPacket && strcmp(string, "NACKNACKNACKNACK") == 0){
+			//the opening wasn't successful, so the learned challenge and response we learned are useless.
+			sprintf(challenge,"");
+			sprintf(response, "");
+			leds_off(LED_GREEN);
+			leds_off(LED_ORANGE);
+			leds_on(LED_RED);
+			firstPacket = true;
+			fourthPacket = false;
+		}
 	}
 	else
 	{
-		if(expectingAck){
-			expectingAck = false;
-			if(strcmp(string, ackackack) == 0){
-				//Yes, gate has opened!
-				leds_off(LED_RED);
-				leds_off(LED_ORANGE);
-				leds_on(LED_GREEN);
-			}
-			else{
-				//Damn.
-				leds_off(LED_GREEN);
-				leds_off(LED_ORANGE);
-				leds_on(LED_RED);
-			}
+		if(strcmp(string, "NACKNACKNACKNACK") == 0){
+			//Damn.
+			leds_off(LED_GREEN);
+			leds_off(LED_ORANGE);
+			leds_on(LED_RED);
+		}
+		else if(strcmp(string, "ACKACKacACKACKac") == 0){
+			//Yes, gate has opened!
+			leds_off(LED_RED);
+			leds_off(LED_ORANGE);
+			leds_on(LED_GREEN);
 		}
 		else{
 			if(src == gate){
-				long temp1 = atol(string); //its gonna try incrementing the value. But since we don't know the key for encryption, we can't do this properly.
-				temp1 += difference;
+				if(awaitingResponse){
+					long temp1 = atol(string);
+					temp1 += difference;
 
-				newPkt.dst = src;
-				if(opener != 0){
-					newPkt.src = opener;
+					newPkt.dst = src;
+					if(opener != 0){
+						newPkt.src = opener;
+					}
+					else{
+						newPkt.src = NODE_ID;
+					}
+					sprintf(newPkt.dt, "%lu", temp1);
+					//canSend = true;
+					
+					leds_off(LED_RED);
+					leds_on(LED_ORANGE);
+					leds_off(LED_GREEN);
+					awaitingResponse = false;
 				}
-				else{
-					newPkt.src = NODE_ID;
-				}
-				sprintf(newPkt.dt, "%lu", temp1);
-				canSend = true;
 				
-				leds_off(LED_RED);
-				leds_on(LED_ORANGE);
-				leds_off(LED_GREEN);
-				
-				expectingAck = true;
 			}
 		}
 	}
@@ -229,6 +233,8 @@ void application_button_pressed()
 		leds_off(LED_RED);
 		leds_on(LED_ORANGE);
 		leds_on(LED_GREEN);
+		
+		awaitingResponse = true;
 	}
 }
 
