@@ -1,7 +1,28 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works with a gate, an attacker, and a noisemaker. The open and gate use a rolling code for  authentication
+(The opener sends a num to the gate to request an open. The gate will accept a certain range of nums. 
+Every send, the open increments its num, and every receive the gate changes the lower bound to the num received + 1)
+In this way, each password will only be accepted once.
+
+The attack is performed when the opener and gate are close enough to communicate. The two attacker nodes are connected with a cable and can communicate over the serial line.
+The attacker picks up the open request from the opener, saves it, and indicates to the noisemaker to block any possible communication.
+The attacker then transmits the open request packet over the serial line to the noisemaker. The noisemaker then saves this packet.
+The opener, having failed to open the gate, sends another open request. The attacker picks this up too, indicates to the noisemaker to block the message, and then sends this packet along.
+The noisemaker then broadcasts the first packet, opening the gate. It now has another open command to open the gate whenever it wants.
+
+The major danger of this attack is that the attackers don't need to know the contents of any of the packets, they just have to replay them.
+*/
+
 //
 // AVR C library
 //
 #include <avr/io.h>
+
 //
 // Standard C include files
 //
@@ -61,8 +82,8 @@ void application_start()
 	radio_init(NODE_ID, false);
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
-	printf("test");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 2000);
 	timer_start(&timer1);
@@ -74,15 +95,6 @@ void application_start()
 
 void application_timer_tick(timer *t)
 {
-	//every 2 seconds, send out a request for opening.
-	/*if(tx_buffer_inuse == false){
-		tx_buffer_inuse = true;
-		
-		
-		memcpy(&tx_buffer, &request, sizeof(Req));
-		printf("sending req\r\n");
-		radio_send(tx_buffer, sizeof(Req), 0xFFFF); //0xFFFF for broadcast
-	}*/
 	//probably don't require ack.
 	/*if(canSend){
 		if(tx_buffer_inuse == false){
@@ -101,7 +113,6 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 	newPkt.src = msgdata[2];
 	newPkt.num = msgdata[4];
 	
-	//printf("Open request from: %d\r\n", newPkt.dst);
 	printf("Open request from: %d\r\n", newPkt.src);
 	printf("Rolling code value sent: %d\r\n", newPkt.num);
 	printf("Actual code: %d\r\n", cl.num);
@@ -137,7 +148,7 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 				}
 				
 				
-				//send an ack
+				//send an ack??
 				//acknowledgement.src = NODE_ID;
 				//acknowledgement.dst = newPkt.src;
 				//acknowledgement.ack = 1; //1 for true.
