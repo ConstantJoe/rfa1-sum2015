@@ -1,21 +1,39 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works with a gate, an attacker, and a noisemaker. The open and gate use a rolling code for  authentication (The gate continuously sends out requests for opening.
+The opener sends a num to the gate as a response to prove itself. The gate will accept a certain range of nums. 
+Every send, the open increments its num, and every receive the gate changes the lower bound to the num received + 1)
+In this way, each password will only be accepted once.
+
+The attack is performed when the opener and gate are geographically seperated. The two attacker nodes are connected with a cable and can communicate over the serial line.
+The attacker picks up the open request from the gate, saves it, and indicates to the noisemaker (which is near the opener) to block any possible communication (however unlikely).
+The attacker then transmits the open request packet over the serial line to the noisemaker. The noisemaker then broadcasts this packet, and picks up the opener's response. It sends
+this response to the attacker, who broadcasts it on click, opening the gate.
+
+The major danger of this attack is that the attackers don't need to know the contents of any of the packets, they just have to replay them.
+*/
+
 //
 // AVR C library
 //
 #include <avr/io.h>
+
 //
 // Standard C include files
 //
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdio.h>
+#include "string.h"
+
 //
-// You MUST include app.h and implement every function declared
+// Header files for the various required libraries
 //
 #include "app.h"
-#include "string.h"
-//
-// Include the header files for the various required libraries
-//
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -23,10 +41,6 @@
 #include "serial.h"
 #include "hw_timer.h"
 
-//unsigned short gate = 0x02;
-//
-// Constants
-//
 typedef struct Packet {
 	uint16_t dst;
 	uint16_t src;
@@ -35,7 +49,6 @@ typedef struct Packet {
 } Packet;
 
 Packet newPkt;
-//uint16_t num;
 char str[8];
 uint16_t gate;
 
@@ -46,9 +59,6 @@ typedef struct Req {
 } Req;
 
 Req request;
-//
-// Global Variables
-//
 static timer timer1;
 
 // Buffer for transmitting radio packets
@@ -58,25 +68,26 @@ bool tx_buffer_inuse=false; // Check false and set to true before sending a mess
 //
 // App init function
 //
-
 void application_start()
 {
 	leds_init();
 	button_init();
+	
 	radio_init(NODE_ID, true); //true indicates receives radio message for ALL nodes
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
-	//printf("test\r\n");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
 	timer_start(&timer1);
 }
+
 //
 // Timer tick handler
 //
-
-//Waiting for a "should I open?" messsage from the gate. When picked up, send it along to its destination, and wait for the response.
+// The packet received here is from the attacker, and is a copy of the gate's "Open" message.
+// The noisemaker has to broadcast this message to get a response from the opener.
 void application_timer_tick(timer *t)
 {
 	for(int i=0;i<8;i++){
@@ -102,7 +113,7 @@ void application_timer_tick(timer *t)
 		request.req = str[4];
 		gate = request.src;
 		
-		//send on that packet to its destination, and pick up the response
+		
 		leds_on(LED_ORANGE);
 		if(tx_buffer_inuse == false)
 		{
@@ -145,8 +156,8 @@ void application_timer_tick(timer *t)
 
 //
 // This function is called whenever a radio message is received
-// You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
 //
+// Waiting for a response from the opener. When picked up, send it along to the attacker.
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
 	newPkt.dst = msgdata[0];
@@ -184,10 +195,10 @@ void application_radio_tx_done()
 
 void application_button_pressed()
 {
-	
+	//not needed
 }
 
 void application_button_released()
 {
-	
+	//not needed
 }

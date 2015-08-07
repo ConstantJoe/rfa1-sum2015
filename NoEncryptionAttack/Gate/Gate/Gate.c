@@ -1,7 +1,25 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
 
+For use with an ATmega128RFA1 microcontroller
+Works with an opener and an attacker, to show that an attacker can imitate an opener easily if messages are not encrypted.
+
+When it receives a packet:
+If that packet contained an open command, it replies with a random number.
+If that packet contained a number, it compares the number with the last number it sent out.
+	If newnum = lastnum + 1, it opens/closes the gate and sends an ACK
+	Else it sends a NACK
+	
+Even if the gate was modified to only accept packets from certain nodes, with no encryption the attacker could easily steal the id of an opener and use that.	
+*/
+
+//
 // AVR C library
 //
 #include <avr/io.h>
+
 //
 // Standard C include files
 //
@@ -10,13 +28,11 @@
 #include <stdio.h>
 #include <string.h>
 #include "inttypes.h"
+
 //
-// You MUST include app.h and implement every function declared
+// Header files for the various required libraries
 //
 #include "app.h"
-//
-// Include the header files for the various required libraries
-//
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -24,6 +40,10 @@
 #include "serial.h"
 #include "hw_timer.h"
 
+//Constants
+#define OPEN "OPENOPENOPENOPEN"
+#define ACK "ACKACKacACKACKac"
+#define NACK "NACKNACKNACKNACK"
 
 typedef struct Packet {
 	uint16_t dst;
@@ -34,9 +54,8 @@ typedef struct Packet {
 unsigned char tx_buffer[RADIO_MAX_LEN];
 bool tx_buffer_inuse=false;
 
-int key = 123; //hardcoded for now.
-unsigned long num;
-bool open = false;
+unsigned long num; //holds the number the gate sends to the opener so the opener's response can be compared to it.
+bool open = false; //keeps track of whether the gate is open or not. In reality just indicates whether to turn on or off an LED.
 static timer timer1;
 bool canSend = false;
 Packet newPkt;
@@ -44,20 +63,26 @@ Packet newPkt;
 void application_start()
 {
 	srand(hw_timer_now_us()); //TODO: use hardware random number generator. This produces the same sequence of random numbers because its called immediately. But it'll do for now.
+	//Since this is at the very start does it generate the same random numbers every time?
 	leds_init();
 	button_init();
 	
 	radio_init(NODE_ID, false);
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
-	printf("test");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
 	timer_start(&timer1);
 }
 
-//This stops working once the board receives a packet for some reason. Must be going into some mode that disables random number generation (RX_SAFE_MODE?). Going back to software generation for now.
+/*
+Hardware random number generation.
+This stops working once the board receives a packet for some reason. 
+Must be going into some mode that disables random number generation (RX_SAFE_MODE?). 
+Going back to software generation for now.
+*/
 /*void getARandomNumber(){
 	unsigned int rand = 0;
 	for(unsigned int i=0;i<8;i++){
@@ -100,7 +125,7 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 	}
 	string[16] = '\0';
 	
-	if(strcmp(string, "OPENOPENOPENOPEN") == 0){
+	if(strcmp(string, OPEN) == 0){
 		printf("sending a random number\r\n");
 		
 		num = rand() % 65534;
@@ -133,7 +158,7 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			}
 			newPkt.dst = src;
 			newPkt.src = NODE_ID;
-			sprintf(newPkt.dt, "ACKACKacACKACKac");
+			sprintf(newPkt.dt, ACK);
 			canSend = true;
 		}
 		else{
@@ -141,7 +166,7 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			printf("sending a nack\r\n");
 			newPkt.dst = 0x01;
 			newPkt.src = NODE_ID;
-			sprintf(newPkt.dt, "NACKNACKNACKNACK");
+			sprintf(newPkt.dt, NACK);
 			canSend = true;
 		}	
 	}

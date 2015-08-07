@@ -1,3 +1,18 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works in tandem with a gate.
+
+On button press, sends an encrypted OPEN request to a partnered gate.
+When it receives a packet, it decrypts it.
+If that packet contained a number, it increments it, re-encrypts it, and sends it back to the gate.
+If that packet contained an ack or nack, it knows if its open attempt has been successful or not.
+*/
+
+
 //
 // AVR C library
 //
@@ -8,14 +23,12 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdio.h>
+#include "string.h"
+
 //
-// You MUST include app.h and implement every function declared
+// Header files for the various required libraries
 //
 #include "app.h"
-#include "string.h"
-//
-// Include the header files for the various required libraries
-//
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -26,10 +39,13 @@
 //
 // Constants
 //
+#define OPEN "OPENOPENOPENOPEN"
+#define ACK "ACKACKacACKACKac"
+#define NACK "NACKNACKNACKNACK"
+
 typedef struct Packet {
 	uint16_t dst;
 	uint16_t src;
-	//uint64_t data;
 	unsigned char dt[17];
 } Packet;
 
@@ -43,22 +59,24 @@ static timer timer1;
 unsigned char tx_buffer[RADIO_MAX_LEN];
 bool tx_buffer_inuse=false; // Check false and set to true before sending a message. Set to false in tx_done
 
-int dest = 0x02;
-int key = 123; //hardcoded for now.
+int dest = 0x02; //We're assuming the opener knows the id of its gate
 bool canSend = false;
 Packet newPkt;
 
-//
-// App init function
-//
+//crypto variables
 unsigned char temp;
 unsigned short i,j;
 char plaintext[17]="This is a test!!";
 char   decrypt[17]="................";
 unsigned char crypto[17]="_______________";
 
-char aesKey[16]={'A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A'}; //TODO: key generation.
+//AES key is hardcoded on both sides for now
+char aesKey[16]={'A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A'};
 
+/*
+Encryption part of AES cipher
+See section 9.8.8 of Atmega128RFA1 datasheet for details
+*/
 void encrypt(){
 	// reset AES pointers
 	temp=AES_CTRL;
@@ -91,6 +109,10 @@ void encrypt(){
 	crypto[16] = '\0';
 }
 
+/*
+Decryption part of AES cipher
+See section 9.8.8 of ATmega128RFA1 datasheet for details
+*/
 void decryptMeth(){
 	// read ctrl to reset pointers
 	temp=AES_CTRL;
@@ -117,15 +139,19 @@ void decryptMeth(){
 	decrypt[i] = AES_STATE;
 }
 
+//
+// Application init
+//
 void application_start()
 {
 	leds_init();
 	button_init();
+	
 	radio_init(NODE_ID, false);
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
-	printf("test\r\n");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
 	timer_start(&timer1);
@@ -149,10 +175,6 @@ void application_timer_tick(timer *t)
 	
 }
 
-//
-// This function is called whenever a radio message is received
-// You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
-//
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
 	char string[17];
@@ -176,13 +198,13 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 	printf("\r\n");
 	printf("   Decrypted plaintext=\"%s\"\n\r", decrypt);
 	
-	if(strcmp(decrypt, "NACKNACKNACKNACK") == 0){
+	if(strcmp(decrypt, NACK) == 0){
 		//Uh oh, our last attempt at opening the gate failed.
 		leds_off(LED_GREEN);
 		leds_off(LED_ORANGE);
 		leds_on(LED_RED);
 	}
-	else if(strcmp(decrypt, "ACKACKacACKACKac") == 0){
+	else if(strcmp(decrypt, ACK) == 0){
 		//Yay, the gate has opened!
 		leds_off(LED_RED);
 		leds_off(LED_ORANGE);
@@ -193,7 +215,7 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 		
 		//cast decrypted string as a long
 		long temp1 = atol(decrypt);
-		temp1++; //this is the protocol
+		temp1++; //this is the protocol - add one to the received number and send it back.
 		
 		//put long back into buffer
 		sprintf(plaintext, "%lu", temp1);
@@ -212,14 +234,13 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			newPkt.dt[i] = crypto[i];
 		}
 		
-		decryptMeth();
-		canSend = true;
+		decryptMeth(); //decrypt gibberish - encrypt and decrypt need to be called as pairs for now.
+		canSend = true; //indicate the packet is ready to be sent
 	}
 }
 
 //
 // This function is called whenever a radio message has been transmitted
-// You need to free up the transmit buffer here
 //
 void application_radio_tx_done()
 {
@@ -248,21 +269,28 @@ void application_radio_tx_done()
 
 void application_button_pressed()
 {
+	//Send a message to the gate asking it to open.
+	
 	newPkt.dst = dest;
 	newPkt.src = NODE_ID;
-	sprintf(plaintext, "OPENOPENOPENOPEN");
+	
+	sprintf(plaintext, OPEN);
 	//encrypt plaintext
 	encrypt();
+	
 	printf("%s\r\n", plaintext);
 	printf("cryptotext=");
 	for (i=0; i<16; i++) printf(" %02x", crypto[i]);
 	printf("\r\n");
+	
 	//put encrypted text into the packet
 	for(int i=0;i<17;i++){
 		newPkt.dt[i] = crypto[i];
 	}
+	
 	canSend = true;
-	decryptMeth();
+	
+	decryptMeth(); //decrypt gibberish - encrypt and decrypt need to be called as pairs for now.
 	
 	leds_off(LED_RED);
 	leds_on(LED_ORANGE);
@@ -271,5 +299,5 @@ void application_button_pressed()
 
 void application_button_released()
 {
-	
+	//Not needed.
 }

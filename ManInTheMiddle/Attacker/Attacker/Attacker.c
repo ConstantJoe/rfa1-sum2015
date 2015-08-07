@@ -1,21 +1,39 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works with a gate, an attacker, and a noisemaker. The open and gate use a rolling code for  authentication (The gate continuously sends out requests for opening.
+The opener sends a num to the gate as a response to prove itself. The gate will accept a certain range of nums. 
+Every send, the open increments its num, and every receive the gate changes the lower bound to the num received + 1)
+In this way, each password will only be accepted once.
+
+The attack is performed when the opener and gate are geographically seperated. The two attacker nodes are connected with a cable and can communicate over the serial line.
+The attacker picks up the open request from the gate, saves it, and indicates to the noisemaker (which is near the opener) to block any possible communication (however unlikely).
+The attacker then transmits the open request packet over the serial line to the noisemaker. The noisemaker then broadcasts this packet, and picks up the opener's response. It sends
+this response to the attacker, who broadcasts it on click, opening the gate.
+
+The major danger of this attack is that the attackers don't need to know the contents of any of the packets, they just have to replay them.
+*/
+
 //
 // AVR C library
 //
 #include <avr/io.h>
+
 //
 // Standard C include files
 //
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdio.h>
-//
-// You MUST include app.h and implement every function declared
-//
-#include "app.h"
 #include "string.h"
+
 //
 // Include the header files for the various required libraries
 //
+#include "app.h"
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -24,9 +42,7 @@
 #include "hw_timer.h"
 
 unsigned short gate = 0x02;
-//
-// Constants
-//
+
 typedef struct Packet {
 	uint16_t dst;
 	uint16_t src;
@@ -46,6 +62,7 @@ char str[6];
 Req request;
 bool canSend;
 bool on = false;
+
 //
 // Global Variables
 //
@@ -69,14 +86,17 @@ void application_start()
 	serial_init(9600);
 	printf("test\r\n");
 	
-	//timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
-	//timer_start(&timer1);
+	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
+	timer_start(&timer1);
 }
 //
 // Timer tick handler
 //
 void application_timer_tick(timer *t)
 {
+	 //picks up a packet from the noisemaker - this must be the response that that opener gave. Broadcast it out to open the gate.
+	 
+	 //This is where the program breaks, I can't pick up data from the serial line properly
 	 //there must be some hardware interrupt for this.
 	 for(int i=0;i<6;i++){
 		 str[i] = 0;
@@ -128,12 +148,7 @@ void application_timer_tick(timer *t)
 
 //
 // This function is called whenever a radio message is received
-// You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
 //
-
-//print out the encrypted message, show that you can't increment it
-//(you know that the opening protocol is increment - if your security relies on the protocol not being known then it will eventually be broken)
-//try increment it anyway, show that the response isn't the equivalent of ACKACKACK.
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
 	//picks up an open from the gate
@@ -204,5 +219,5 @@ void application_button_pressed()
 
 void application_button_released()
 {
-	
+	//not needed
 }

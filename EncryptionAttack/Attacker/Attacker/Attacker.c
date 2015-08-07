@@ -1,3 +1,18 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works with an opener and a gate, to show that an attacker can't imitate an opener if messages are encrypted.
+
+Attacker listens in to an open request done nearby.
+From the exchange it learns the encrypted "Open" keyword, the encrpyted number sent by the gate, and the encrypted number sent back by the opener in response.
+Since the numbers are encrypted the attacker cannot figure out the protocol, and so any attack it make will fail.
+
+Once this is done the attacker can send an open message, but cannot understand the prompt given back or respond with the correct response.
+*/
+
 //
 // AVR C library
 //
@@ -8,14 +23,12 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdio.h>
-//
-// You MUST include app.h and implement every function declared
-//
-#include "app.h"
 #include "string.h"
+
 //
 // Include the header files for the various required libraries
 //
+#include "app.h"
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -28,10 +41,10 @@ unsigned short gate;
 //
 // Constants
 //
+
 typedef struct Packet {
 	uint16_t dst;
 	uint16_t src;
-	//uint64_t data;
 	char dt[16];
 } Packet;
 
@@ -49,12 +62,15 @@ int dest = 0x02;
 bool canSend = false;
 Packet newPkt;
 
+//State-based system - TODO: neaten this up
 bool firstPacket = true;
 bool secondPacket = false;
 bool thirdPacket = false;
 bool fourthPacket = false;
+
 bool canOpen = false;
 bool awaitingResponse = false;
+
 long difference = 0;
 char openKeyword[17];
 char challenge[17];
@@ -67,11 +83,12 @@ void application_start()
 {
 	leds_init();
 	button_init();
+	
 	radio_init(NODE_ID, true); //true indicates receives radio message for ALL nodes
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
-	printf("test\r\n");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
 	timer_start(&timer1);
@@ -82,7 +99,6 @@ void application_start()
 void application_timer_tick(timer *t)
 {
 	if(canSend){
-		printf("sending a message\r\n");
 		if(tx_buffer_inuse == false)
 		{
 			tx_buffer_inuse = true;
@@ -98,7 +114,6 @@ void application_timer_tick(timer *t)
 
 //
 // This function is called whenever a radio message is received
-// You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
 //
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
@@ -115,7 +130,6 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 
 	if(!canOpen){
 		if(firstPacket){
-			printf("1\r\n");
 			gate = dst;
 			opener = src;
 			
@@ -127,30 +141,27 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			secondPacket = true;
 		}
 		else if(src == gate && secondPacket){
-			printf("2\r\n");
 			sprintf(challenge, string);
 			secondPacket = false;
 			thirdPacket = true;
 		}
 		else if(src == opener && thirdPacket){
-			printf("3\r\n");
 			sprintf(response,string);
 			thirdPacket = false;
 			fourthPacket = true;
 		}
 		//going to assume that the attacker will know if the attack is successful or not (ack or nack). In reality user could input into device that the opening was successful or not.
-		else if(fourthPacket && strcmp(string, "ACKACKacACKACKac") == 0){
+		else if(fourthPacket /*&& strcmp(string, "ACKACKacACKACKac") == 0*/){
 			//the opening was successful - there should be some recognisable difference between the challenge and response.
 			//going to simplify and assume its an addition. Would be better to learn what the difference is.
-			printf("4\r\n");
 			canOpen = true;
-			difference = atol(response) - atol(challenge);
+			difference = atol(response) - atol(challenge); //but, these two numbers are encrypted. So the difference calculated will be wrong - and there's no way for the attacker to figure out the right difference.
 			
 			leds_off(LED_RED);
 			leds_on(LED_ORANGE);
 			leds_off(LED_GREEN);
 		}
-		else if(fourthPacket && strcmp(string, "NACKNACKNACKNACK") == 0){
+		else if(fourthPacket /*&& strcmp(string, "NACKNACKNACKNACK") == 0*/){
 			//the opening wasn't successful, so the learned challenge and response we learned are useless.
 			sprintf(challenge,"");
 			sprintf(response, "");

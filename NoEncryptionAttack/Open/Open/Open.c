@@ -1,21 +1,36 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works with an opener and an attacker, to show that an attacker can imitate an opener easily if messages are not encrypted.
+
+On button press, sends an OPEN request to a partnered gate.
+When it receives a packet:
+If that packet contained a number, it increments it, and sends it back to the gate.
+If that packet contained an ack or nack, it knows if its open attempt has been successful or not.
+
+Since none of its messages are encrypted, an attacker can listen in and learn the protocol for opening the gate (in this case, increment the received number and send it back)
+*/
+
 //
 // AVR C library
 //
 #include <avr/io.h>
+
 //
 // Standard C include files
 //
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdio.h>
+#include "string.h"
+
 //
-// You MUST include app.h and implement every function declared
+// Header files for the various required libraries
 //
 #include "app.h"
-#include "string.h"
-//
-// Include the header files for the various required libraries
-//
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -26,13 +41,16 @@
 //
 // Constants
 //
+#define OPEN "OPENOPENOPENOPEN"
+#define ACK "ACKACKacACKACKac"
+#define NACK "NACKNACKNACKNACK"
+
 typedef struct Packet {
 	uint16_t dst;
 	uint16_t src;
 	//uint64_t data;
 	char dt[16];
 } Packet;
-
 
 //
 // Global Variables
@@ -50,20 +68,21 @@ Packet newPkt;
 //
 // App init function
 //
-
 void application_start()
 {
 	leds_init();
 	button_init();
+	
 	radio_init(NODE_ID, false);
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
-	printf("test\r\n");
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
 	timer_start(&timer1);
 }
+
 //
 // Timer tick handler
 //
@@ -85,7 +104,6 @@ void application_timer_tick(timer *t)
 
 //
 // This function is called whenever a radio message is received
-// You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
 //
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
@@ -98,25 +116,20 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 	}
 	string[16] = '\0';
 
-	//put string into plaintext
-	//sprintf(plaintext, string);
-	//decrypt plaintext
-	//decryptMeth();
 	
-	if(strcmp(string, "NACKNACKNACKNACK") == 0){ //something more complex than this - should be encrypted too?
-		//Uh oh.
+	if(strcmp(string, NACK) == 0){
+		//Uh oh, our last attempt at opening the gate failed.
 		leds_off(LED_GREEN);
 		leds_off(LED_ORANGE);
 		leds_on(LED_RED);
 	}
-	else if(strcmp(string, "ACKACKacACKACKac") == 0){ //something more complex than this.
+	else if(strcmp(string, ACK) == 0){
 		//Gate has opened.
 		leds_off(LED_RED);
 		leds_off(LED_ORANGE);
 		leds_on(LED_GREEN);
 	}
 	else{
-		//for the purposes of this demo, the opener won't give a response. The attacker will steal the number and give a response instead.
 		long temp1 = atol(string); //should be atolu?
 		temp1++;
 
@@ -151,7 +164,7 @@ void application_button_pressed()
 {
 	newPkt.dst = dest;
 	newPkt.src = NODE_ID;
-	sprintf(newPkt.dt, "OPENOPENOPENOPEN");
+	sprintf(newPkt.dt, OPEN);
 	canSend = true;
 	
 	leds_off(LED_RED);
@@ -161,5 +174,5 @@ void application_button_pressed()
 
 void application_button_released()
 {
-	
+	//not needed
 }

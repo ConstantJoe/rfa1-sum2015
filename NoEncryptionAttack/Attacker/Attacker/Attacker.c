@@ -1,21 +1,36 @@
+/*
+Joseph Finnegan
+Maynooth University
+Summer 2015
+
+For use with an ATmega128RFA1 microcontroller
+Works with an opener and a gate, to show that an attacker can imitate an opener easily if messages are not encrypted.
+
+Attacker listens in to an open request done nearby.
+From the exchange it learns the "Open" keyword, the number sent by the gate, and the number sent back by the opener in response.
+Using these two numbers the attacker can figure out what the protocol is (e.g. add 1 to the number)
+
+Once this is done the attacker can imitate the opener, even using its ID.
+On button press the attacker functions exactly like an opener.
+*/
+
 //
 // AVR C library
 //
 #include <avr/io.h>
+
 //
 // Standard C include files
 //
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdio.h>
+#include "string.h"
+
 //
-// You MUST include app.h and implement every function declared
+// Header files for the various required libraries
 //
 #include "app.h"
-#include "string.h"
-//
-// Include the header files for the various required libraries
-//
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -28,10 +43,12 @@ unsigned short gate;
 //
 // Constants
 //
+#define ACK "ACKACKacACKACKac"
+#define NACK "NACKNACKNACKNACK"
+
 typedef struct Packet {
 	uint16_t dst;
 	uint16_t src;
-	//uint64_t data;
 	char dt[16];
 } Packet;
 
@@ -49,27 +66,32 @@ int dest = 0x02;
 bool canSend = false;
 Packet newPkt;
 
+//State-based system - TODO: neaten this up
 bool firstPacket = true;
 bool secondPacket = false;
 bool thirdPacket = false;
 bool fourthPacket = false;
+
 bool canOpen = false;
 bool awaitingResponse = false;
+
 long difference = 0;
 char openKeyword[17];
 char challenge[17];
 char response[17];
+
 //
 // App init function
 //
-
 void application_start()
 {
 	leds_init();
 	button_init();
+	
 	radio_init(NODE_ID, true); //true indicates receives radio message for ALL nodes
 	radio_set_power(1);
 	radio_start();
+	
 	serial_init(9600);
 	
 	timer_init(&timer1, TIMER_MILLISECONDS, 1000, 100);
@@ -96,7 +118,6 @@ void application_timer_tick(timer *t)
 
 //
 // This function is called whenever a radio message is received
-// You must copy any data you need out of the packet - as 'msgdata' will be overwritten by the next message
 //
 void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, unsigned char *msgdata)
 {
@@ -107,8 +128,8 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 	}
 	string[16] = '\0';
 
-	if(!canOpen){
-		if(firstPacket){
+	if(!canOpen){ //Learning process
+		if(firstPacket){ //learn the "OPEN" keyword
 			gate = dst;
 			opener = src;
 			
@@ -116,18 +137,18 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			firstPacket = false;
 			secondPacket = true;
 		}
-		else if(src == gate && secondPacket){
+		else if(src == gate && secondPacket){ //learn the challenge sent by the gate
 			sprintf(challenge, string);
 			secondPacket = false;
 			thirdPacket = true;
 		}
-		else if(src == opener && thirdPacket){
+		else if(src == opener && thirdPacket){ //learn what response the opener gave
 			sprintf(response,string);
 			thirdPacket = false;
 			fourthPacket = true;
 		}
 		//going to assume that the attacker will know if the attack is successful or not (ack or nack). In reality user could input into device that the opening was successful or not.
-		else if(fourthPacket && strcmp(string, "ACKACKacACKACKac") == 0){
+		else if(fourthPacket && strcmp(string, ACK) == 0){
 			//the opening was successful - there should be some recognisable difference between the challenge and response.
 			//going to simplify and assume its an addition. Would be better to learn what the difference is.
 			canOpen = true;
@@ -137,7 +158,7 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			leds_on(LED_ORANGE);
 			leds_off(LED_GREEN);
 		}
-		else if(fourthPacket && strcmp(string, "NACKNACKNACKNACK") == 0){
+		else if(fourthPacket && strcmp(string, NACK) == 0){
 			//the opening wasn't successful, so the learned challenge and response we learned are useless.
 			sprintf(challenge,"");
 			sprintf(response, "");
@@ -148,15 +169,15 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 			fourthPacket = false;
 		}	
 	}
-	else
+	else //already learned how to open. Sent an open request, waiting for a response from the gate.
 	{
-		if(strcmp(string, "NACKNACKNACKNACK") == 0){
+		if(strcmp(string, NACK) == 0){
 			//Damn.
 			leds_off(LED_GREEN);
 			leds_off(LED_ORANGE);
 			leds_on(LED_RED);
 		}
-		else if(strcmp(string, "ACKACKacACKACKac") == 0){
+		else if(strcmp(string, ACK) == 0){
 			//Yes, gate has opened!
 			leds_off(LED_RED);
 			leds_off(LED_ORANGE);
@@ -191,7 +212,6 @@ void application_radio_rx_msg(unsigned short dst, unsigned short src, int len, u
 
 //
 // This function is called whenever a radio message has been transmitted
-// You need to free up the transmit buffer here
 //
 void application_radio_tx_done()
 {
@@ -213,7 +233,7 @@ void application_button_pressed()
 {
 	if(canOpen){
 		newPkt.dst = gate;
-		newPkt.src = opener; //pretend :)
+		newPkt.src = opener; //pretend to be the opener we've picked up :)
 		sprintf(newPkt.dt, openKeyword);
 		canSend = true;
 		
@@ -227,5 +247,5 @@ void application_button_pressed()
 
 void application_button_released()
 {
-	
+	//not needed
 }

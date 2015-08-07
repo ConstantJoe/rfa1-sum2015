@@ -1,4 +1,4 @@
-
+//
 // AVR C library
 //
 #include <avr/io.h>
@@ -10,13 +10,11 @@
 #include <stdio.h>
 #include <string.h>
 #include "inttypes.h"
+
 //
-// You MUST include app.h and implement every function declared
+// Header files for the various required libraries
 //
 #include "app.h"
-//
-// Include the header files for the various required libraries
-//
 #include "simple_os.h"
 #include "button.h"
 #include "leds.h"
@@ -28,7 +26,6 @@ typedef struct Client {
 	uint16_t id;
 	uint16_t num;
 } Client;
-
 
 typedef struct Packet {
 	uint16_t dst;
